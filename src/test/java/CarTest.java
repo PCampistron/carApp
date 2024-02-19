@@ -2,26 +2,32 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class VoitureTest {
+public class CarTest {
 
-    private Voiture voiture;
+    private Car car;
 
     @BeforeEach
     public void setUp() {
-        voiture = new Voiture("Sedan", "Bleu");
+        car = new Car("Sedan", "Bleu");
     }
 
     @Test
     public void testAccelerer() {
-        voiture.accelerer();
-        assertThat(voiture.getVitesse()).isEqualTo(10);
+        // WHEN
+        car.speedUp();
+
+        // THEN
+        assertThat(car.getSpeed()).isEqualTo(10);
     }
 
     @Test
     public void testRalentir() {
-        voiture.accelerer();
-        voiture.ralentir();
-        assertThat(voiture.getVitesse()).isEqualTo(0);
+        // WHEN
+        car.speedUp();
+        car.slowDown();
+
+        // THEN
+        assertThat(car.getSpeed()).isEqualTo(0);
     }
 
     @Test
